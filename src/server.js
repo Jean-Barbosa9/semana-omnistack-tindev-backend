@@ -3,12 +3,9 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const server = express();
 
-mongoose.connect(
-  "mongodb+srv://OmnistackTindev:0mn1T1nd3v@cluster0-pvsmn.mongodb.net/omnistacktindev?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true
-  }
-);
+const configs = require("../config");
+
+mongoose.connect(configs.mongoDBUrl, { useNewUrlParser: true });
 
 server.use(express.json());
 server.use(routes);
