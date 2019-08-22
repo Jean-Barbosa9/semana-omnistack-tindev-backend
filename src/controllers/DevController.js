@@ -44,6 +44,9 @@ module.exports = {
   },
 
   async store(request, response) {
+
+    console.log('requesting: ', request.body)
+
     const { username } = request.body;
 
     const userExists = await Dev.findOne({ user: username });
